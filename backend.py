@@ -55,4 +55,4 @@ def update(id, title, author, year, isbn):
 connect()
 # insert("csharp", "shakoori", 2023, 5475968)
 update(4, "new book", "sajjad", 2021, 784587)
-# print(view())
+print(view())

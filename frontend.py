@@ -51,7 +51,14 @@ def get_selected_row(event):
     global selected_book
     index = list1.curselection()[0]
     selected_book = list1.get(index)
-    return selected_book
+    e1.delete(0, END)
+    e1.insert(END, selected_book[1])
+    e2.delete(0, END)
+    e2.insert(END, selected_book[2])
+    e3.delete(0, END)
+    e3.insert(END, selected_book[3])
+    e4.delete(0, END)
+    e4.insert(END, selected_book[4])
 
 
 list1.bind("<<listBoxSelect>>", get_selected_row)
@@ -90,7 +97,9 @@ bt1.grid(row=5, column=3)
 
 
 def delete_command():
-    backend.delete(get_selected_row()[0])
+    print(selectedBook)
+    print(selectedBook[0])
+    backend.delete(selectedBook[0])
     view_command()
 
 
