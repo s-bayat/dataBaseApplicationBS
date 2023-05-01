@@ -106,7 +106,7 @@ def delete_command():
 bt1 = Button(window, text="Delete Selected", width=12, command=delete_command)
 bt1.grid(row=6, column=3)
 
-bt1 = Button(window, text="Close", width=12)
+bt1 = Button(window, text="Close", width=12, command=window.destroy)
 bt1.grid(row=7, column=3)
 view_command()
 window.mainloop()
