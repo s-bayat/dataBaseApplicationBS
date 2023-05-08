@@ -47,21 +47,21 @@ list1.configure(yscrollcommand=sb1.set)
 sb1.configure(command=list1.yview)
 
 
-# def get_selected_row(event):
-#     global selected_book
-#     index = list1.curselection()[0]
-#     selected_book = list1.get(index)
-#     e1.delete(0, END)
-#     e1.insert(END, selected_book[1])
-#     e2.delete(0, END)
-#     e2.insert(END, selected_book[2])
-#     e3.delete(0, END)
-#     e3.insert(END, selected_book[3])
-#     e4.delete(0, END)
-#     e4.insert(END, selected_book[4])
+def get_selected_row(event):
+    global selected_book
+    index = list1.curselection()[0]
+    selected_book = list1.get(index)
+    e1.delete(0, END)
+    e1.insert(END, selected_book[1])
+    e2.delete(0, END)
+    e2.insert(END, selected_book[2])
+    e3.delete(0, END)
+    e3.insert(END, selected_book[3])
+    e4.delete(0, END)
+    e4.insert(END, selected_book[4])
 
 
-# list1.bind("<<listBoxSelect>>", get_selected_row)
+list1.bind("<<listBoxSelect>>", get_selected_row)
 
 
 def view_command():
@@ -101,9 +101,13 @@ bt1.grid(row=5, column=3)
 #     print(selectedBook[0])
 #     backend.delete(selectedBook[0])
 #     view_command()
+def delete_row():
+    selected_row = list1.curselection()
+    selected_row = int(selected_row[0])
+    list1.delete(selected_row)
 
 
-bt1 = Button(window, text="Delete Selected", width=12)
+bt1 = Button(window, text="Delete Selected", width=12, command=delete_row)
 bt1.grid(row=6, column=3)
 
 bt1 = Button(window, text="Close", width=12, command=window.destroy)
